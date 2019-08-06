@@ -12,7 +12,7 @@ module.exports = app => {
 
     //Settings 
     app.set('port',process.env.PORT || 3000); //Le digo que inicialice en un puerto. Si existe un puerto en el sistema usalo, sino el 3000
-    app.set('views',path.join(__dirname,'views')); //Con esto node sabe donde esta la carpeta views
+    app.set('views',path.join(__dirname,'../views')); //Con esto node sabe donde esta la carpeta views
     app.engine('.hbs',exphbs({
         defaultLayout: 'main',
         partialsDir: path.join(app.get('views'),'partials'),
@@ -24,7 +24,7 @@ module.exports = app => {
 
     //Middlewares
     app.use(morgan('dev'));
-    app.use(multer({dest:path.join(__dirname,'../public/upload/temp')}).single('image')) //cuando se suba una imagen la mete en upload temp. pero solo recibiré una imagen image. Podríamos poner cualquier nombre
+    app.use(multer({dest:path.join(__dirname,'../public/upload/temp')}).single('image')) //cuando se suba una imagen la mete en upload temp. pero solo recibiré una imagen image. Podríamos poner cualquier nombre. Lo que hay en single sera el input del formulario
     app.use(express.urlencoded({extended: false})); //recibo las imagenes
     app.use(express.json()); //manejaré los likes
 

@@ -6,10 +6,10 @@ const image = require('../controllers/image');
 
 module.exports = app =>{
 
-    /*
+    
     app.get('/',(req,res) =>{
-        res.send('Index page');
-    });*/
+        res.render('index'); //no tengo que decirle que tengo que mirar main.hbs porque eso está en server config. Cargará index pero con la info del layout main
+    });
 
     router.get('/',home.index); //Con esto el código es más limpio. Index esta en controlador/home
     router.get('/images/:image_id',image.index); //:image_id es una variable en la ruta
