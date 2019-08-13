@@ -1,3 +1,10 @@
+$('#post-comment').hide();//Oculta el elemento post comment
+
+$('#btn-toggle-comment').click(e =>{ //esto es lo mismo que lo de function
+    e.preventDefault();
+    $('#post-comment').slideToggle(); //Llamaremos a este elemento
+});
+
 $('#btn-like').click(function(e){ //cuando haga click en el boton con el id btn-like
     e.preventDefault(); //Cancela el comportamiento normal de al hacer click redirigir porque vamos a hacer la nuestra propia
     let imgId = $(this).data('id');//lo pusimos en las propiedades del boton
