@@ -85,8 +85,17 @@ ctrl.comment = async (req, res) => {
     }
 };
 
-ctrl.remove = (req, res) => {
-
+ctrl.remove = async (req, res) => {
+    const image = await Image.findOne({filename: {$regex: req.params.image_id}});
+    console.log('Encontramos ',image);
+    if(image){
+        await fs.unlink(path.resolve('src/public/upload/'+image.filename));//va a eliminar la imagen que encuentre con la id dada
+        await Comment.deleteOne({image_id: image._id});
+        await image.remove();
+        res.json(true);
+    }else{
+        res.status(404).json({error:'Recurso no encontrado'});
+    }
 };
 
 module.exports = ctrl;
