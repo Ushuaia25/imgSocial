@@ -10,8 +10,8 @@ const ctrl = {};
 
 ctrl.index = async (req,res) =>{
     const image = await Image.findOne({filename:{$regex: req.params.image_id}}); //Busca solo la imagen cuyo nombre sin importar la extension coincida con ese dato
-    console.log(image);
-    res.render('image',image);
+    const comments = await Comment.find({image_id: image._id});
+    res.render('image',{image,comments});
 };
 
 ctrl.create =  (req,res) =>{ //Porque fs funciona asíncronamente para que espere
@@ -62,6 +62,8 @@ ctrl.comment = async (req,res) =>{
         newComment.image_id = image._id;
         await newComment.save();
         res.redirect('/images/'+image.uniqueId);
+    }else{
+        res.render('Error , no hay imagen');
     }
 };
 
