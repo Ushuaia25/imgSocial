@@ -14,7 +14,7 @@ const ImageSchema = new Schema({
 
 ImageSchema.virtual('uniqueId') //Cuando pida uniqueId me devolverá el nombre sin extensión
     .get(function(){
-        return this.filename.replace(path.extname()); //No quiero el nombre completo. Le quito la extensión al filename
+        return path.parse(this.filename).name;; //No quiero el nombre completo. Le quito la extensión al filename
     });
 
 module.exports = mongoose.model('Image',ImageSchema); //Estoy creando un nuevo modelo de Imagen que va a tomar el esquema ImageSchema
