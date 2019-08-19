@@ -16,7 +16,7 @@ module.exports = app => {
     app.engine('.hbs',exphbs({
         defaultLayout: 'main',
         partialsDir: path.join(app.get('views'),'partials'),
-        partialsDir: path.join(app.get('views'),'layouts'), //Decimos que las carpetas partials y layout estan en views
+        layoutsDir: path.join(app.get('views'),'layouts'), //Decimos que las carpetas partials y layout estan en views
         extname: '.hbs', //defino como voy a terminar los archivos
         helpers: require('./helpers')
     }));//el motor que vamos a usar de hadlebars

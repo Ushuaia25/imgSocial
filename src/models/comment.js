@@ -11,4 +11,12 @@ const CommentSchema = new Schema({
     gravatar: { type:String }
 });
 
+CommentSchema.virtual('image')
+    .set(function (image){
+        this._image = image;
+    })
+    .get(function(){
+        return this._image;
+    })
+
 module.exports = model('comment', CommentSchema);

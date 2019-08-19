@@ -1,6 +1,7 @@
 <!-- Esto es un template, es lo que quiero que se repita en todos mis archivos, por eso está en Layout -->
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,25 +10,26 @@
 
     <!-- BOOTSTRAP 4 , Yo estoy usando de bootswatch el theme sketchy -->
     <link rel="stylesheet" href="https://bootswatch.com/4/sketchy/bootstrap.min.css">
-    
+
     <!-- FONT AWESOME -->
     <script src="https://kit.fontawesome.com/9bbd20310e.js"></script>
 
     <!-- CUSTOM CSS -->
     <link rel="stylesheet" href="/public/css/styles.css">
-    
+
 </head>
+
 <body>
 
     <nav class="navbar navbar-dark bg-dark">
         <div class="container"></div>
-            <a href="http://localhost:3000" class="navbar-brand">
-                <img src="/public/img/imgshare-logo.png" alt="Logo imgSocial">
-            </a>
+        <a href="http://localhost:3000" class="navbar-brand">
+            <img src="/public/img/imgshare-logo.png" alt="Logo imgSocial">
+        </a>
         </div>
     </nav>
 
-<!-- Aquí ponemos lo que se va a modificar entre 3 llaves  -->
+    <!-- Aquí ponemos lo que se va a modificar entre 3 llaves  -->
     <!-- p-4 es padding 4 -->
     <div class="container p-4">
         <div class="row">
@@ -36,14 +38,19 @@
                 {{{ body }}}
             </div>
             <div class="col-md-4">
-                
+                <!-- Así se añaden partials -->
+                {{> stats }}
+                {{> popular }}
+                {{> comments }}
             </div>
         </div>
     </div>
 
     <!-- SCRIPTS -->
-    <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.js"
+        integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
     <!-- CUSTOM CODE -->
     <script src="/public/js/scripts.js"></script>
 </body>
+
 </html>
